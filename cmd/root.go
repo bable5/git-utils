@@ -18,4 +18,5 @@ func Execute() error {
 
 func init() {
 	rootCmd.AddCommand(newUserstoryCmd())
+	rootCmd.AddCommand(newCommitMsgCmd())
 }
