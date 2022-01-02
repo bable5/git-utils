@@ -10,6 +10,20 @@ import (
 	"syscall"
 )
 
+type UserStoryNotFound struct {
+	msg string
+}
+
+func NewUserStoryNotFound(msg string) error {
+	return &UserStoryNotFound{
+		msg: msg,
+	}
+}
+
+func (m *UserStoryNotFound) Error() string {
+	return m.msg
+}
+
 func AddToConfig(configEntry, value string) error {
 	var stderr bytes.Buffer
 
@@ -35,7 +49,7 @@ func GetFromConfig(configEntry string) (string, error) {
 	if exitError, ok := err.(*exec.ExitError); ok {
 		if waitStatus, ok := exitError.Sys().(syscall.WaitStatus); ok {
 			if waitStatus.ExitStatus() == 1 {
-				return "", fmt.Errorf("%s not found", configEntry)
+				return "", NewUserStoryNotFound(fmt.Sprintf("%s not found", configEntry))
 			}
 		}
 		return "", err

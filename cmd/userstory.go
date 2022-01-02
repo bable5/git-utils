@@ -7,10 +7,10 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var (
-	gitConfigSection string
-	removeFlag       bool
-	userstoryCmd     = &cobra.Command{
+func newUserstoryCmd() *cobra.Command {
+	var gitConfigSection string
+	var removeFlag bool
+	userstoryCmd := &cobra.Command{
 		Use:   "userstory [userstory-id]",
 		Short: "Set/Update/Clear the userstory",
 		Long:  `Manage the 'userstory' git config value.`,
@@ -19,7 +19,6 @@ var (
 				userstory := args[0]
 				return gitutils.AddToConfig(gitConfigSection, userstory)
 			} else if removeFlag {
-				fmt.Println("removing the config")
 				return gitutils.RemoveFromConfig(gitConfigSection)
 			} else {
 
@@ -34,9 +33,9 @@ var (
 			}
 		},
 	}
-)
 
-func init() {
 	userstoryCmd.PersistentFlags().StringVarP(&gitConfigSection, "git-config-section", "", "bable5.userstory", "Name of the config entry to store the userstory in.")
 	userstoryCmd.Flags().BoolVarP(&removeFlag, "remove", "", false, "clears the userstory config")
+
+	return userstoryCmd
 }
