@@ -1,6 +1,6 @@
 ---
 
-name: Release Git-Utils
+name: Test and Build Git-Utils
 
 on:
   push:

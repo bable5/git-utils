@@ -2,6 +2,8 @@
 
 Utility to automate git workflows.
 
+![Build Badge](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
+
 ## Commands
 
 * `userstory` get/set/update the userstory config value
