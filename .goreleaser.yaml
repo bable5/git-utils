@@ -1,6 +1,4 @@
 builds:
   -
-    goos:
-      - linux
-    goarch:
-      - amd64
+    ignore:
+      - goos: darwin
