@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    name: GoReleaser builds
+    name: Test and Build
     runs-on: ubuntu-latest
 
     steps:
