@@ -2,7 +2,7 @@
 
 Utility to automate git workflows.
 
-![Build Badge](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
+![Build Badge](https://github.com/bable5/git-utils/actions/workflows/main.yml/badge.svg)
 
 ## Commands
 
