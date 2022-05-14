@@ -1,4 +1,9 @@
+---
+
+# See: https://goreleaser.com/customization
+
 builds:
   -
     ignore:
       - goos: darwin
+    #files: -- include the install and bash scripts here when written.
