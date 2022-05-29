@@ -10,6 +10,14 @@ Utility to automate git workflows.
 * `commit-msg` git `commit-msg` hook. Treats the commit message as a go template.
   - `{{ .US }}` template in the userstory, if configured.
 
+## Scrips
+
+* `git-userstory`. Forwards arguments to `git-utils userstory`. When it is on the $PATH git will be able to translate `git userstory` into `git-userstory`
+
+## Hooks
+
+* `commit-msg`. Forwards arguments to `git-utils commit-msg`. Place in `.git/hooks`.
+
 Plugins to rewrite
 
 1. ~~git userstory~~
