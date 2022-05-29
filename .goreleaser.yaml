@@ -1,4 +1,30 @@
+# Make sure to check the documentation at https://goreleaser.com
+project_name: git-utils
+before:
+  hooks:
+    - go mod tidy
 builds:
-  -
-    ignore:
-      - goos: darwin
+  - env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+archives:
+  - replacements:
+      linux: Linux
+      386: i386
+      amd64: x86_64
+    files:
+      - scripts/*
+      - hooks/*
+    wrap_in_directory: "true"
+checksum:
+  name_template: 'checksums.txt'
+snapshot:
+  name_template: "{{ incpatch .Version }}-next"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'
